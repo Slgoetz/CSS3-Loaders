@@ -13,6 +13,8 @@ A brooklyn based creative agency founded by simon goetz and alex martineau
 @import 'reset.css';
 
 
+@import url(http://fonts.googleapis.com/css?family=Montserrat|PT+Mono);
+
 //=============================================================
 //              COLORS & HEIGHTS
 //=============================================================
@@ -21,10 +23,12 @@ A brooklyn based creative agency founded by simon goetz and alex martineau
 @body: rgb(86,95,108);//#56636D // A3A6A8 //203E55
 @blue: #2A85C5;
 @red:#FF0558;
+@yellow:#eccd34;
 // @darkgrey:rgb(86,95,108);
-
+@green:#00c697;
 
 @holderHeight:250px;
+
 
 
 //=============================================================
@@ -115,7 +119,51 @@ A brooklyn based creative agency founded by simon goetz and alex martineau
 }
 
 
+.intro{
+	position: relative;
+	width: 100%;
+	left: 0px;
+	right: 0px;
+	height: 500px;
+	// background-color: #141212;
+	background-color: @red;
+	z-index: 9999;
+	text-align: center;
+	display: table;
 
+	.center{
+		display: table-cell;
+		vertical-align: middle;
+		text-align: center;
+	}
+
+}
+
+h1{
+	// border-top: 5px solid @white;
+	// border-bottom: 5px solid @white;
+	
+	font-family: 'Montserrat', sans-serif;
+	// font-style: italic;
+	display: block;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 92px;
+	color: @grey;
+}
+h2{
+	color: @grey;
+	font-size: 14px;
+	font-family: 'PT Mono', ;
+	font-family: 100;
+	margin-top: 40px;
+	a{
+		color: @grey;
+		&:hover{
+			color: fadeout(@grey, 20%);
+		}
+	}
+}
 
 //=============================================================
 //              LOADER 1
@@ -132,6 +180,7 @@ A brooklyn based creative agency founded by simon goetz and alex martineau
 	background-color: @grey;
 	z-index: 9999;
 	text-align: center;
+
 }
 .loading_one span {
 	width: 25px;
@@ -142,25 +191,82 @@ A brooklyn based creative agency founded by simon goetz and alex martineau
 	left: 0px;
 	background: @body;
 	border-radius: 50%;
+
+	.dna&{
+		width: 15px;
+		height: 15px;
+
+	} 
 }
 .circle{
+	@offset: 20px;
 	.box-sizing;
 	height: 60px;
 	width: 60px;
 	position: absolute;
 	left: 50%;
 	top: @holderHeight;
-	margin-top: -30px;
+	// margin-top: -30px;
 	border-radius: 35%;
-	&.one{
+	&.one_a{
 		animation: rotateLoadReverse 1.25s infinite linear;
 		-moz-animation: rotateLoadReverse 1.25s infinite linear;
 		-webkit-animation: rotateLoadReverse 1.25s infinite linear;
 	}
-	&.two{
+	&.two_a{
 		animation: rotateLoad 1.25s infinite linear;
 		-moz-animation: rotateLoad 1.25s infinite linear;
 		-webkit-animation: rotateLoad 1.25s infinite linear;
+	}
+
+	&.one{
+		animation: rotateLoadReverseSmall 1.25s infinite linear;
+		-moz-animation: rotateLoadReverseSmall 1.25s infinite linear;
+		-webkit-animation: rotateLoadReverseSmall 1.25s infinite linear;
+
+	}
+	&.two{
+		animation: rotateLoadSmall 1.25s infinite linear;
+		-moz-animation: rotateLoadSmall 1.25s infinite linear;
+		-webkit-animation: rotateLoadSmall 1.25s infinite linear;
+	}
+
+
+	&.three{
+		margin-top:@offset;
+		animation: rotateLoadSmall 1.25s .5s infinite linear;
+		-moz-animation: rotateLoadSmall 1.25s .5s infinite linear;
+		-webkit-animation: rotateLoadSmall 1.25s .5s infinite linear;
+	}
+	&.four{
+		margin-top:@offset;
+		animation: rotateLoadReverseSmall 1.25s  .5s infinite linear;
+		-moz-animation: rotateLoadReverseSmall 1.25s  .5s infinite linear;
+		-webkit-animation: rotateLoadReverseSmall 1.25s .5s  infinite linear;
+	}
+	&.five{
+		margin-top:2*@offset;
+		animation: rotateLoadSmall 1.25s 1s infinite linear;
+		-moz-animation: rotateLoadSmall 1.25s 1s infinite linear;
+		-webkit-animation: rotateLoadSmall 1.25s 1s infinite linear;
+	}
+	&.six{
+		margin-top:2*@offset;
+		animation: rotateLoadReverseSmall 1.25s  1s infinite linear;
+		-moz-animation: rotateLoadReverseSmall 1.25s  1s infinite linear;
+		-webkit-animation: rotateLoadReverseSmall 1.25s 1s  infinite linear;
+	}
+	&.seven{
+		margin-top:3*@offset;
+		animation: rotateLoadSmall 1.25s 1.5s infinite linear;
+		-moz-animation: rotateLoadSmall 1.25s 1.5s infinite linear;
+		-webkit-animation: rotateLoadSmall 1.25s 1.5s infinite linear;
+	}
+	&.eight{
+		margin-top:3*@offset;
+		animation: rotateLoadReverseSmall 1.25s  1.5s infinite linear;
+		-moz-animation: rotateLoadReverseSmall 1.25s  1.5s infinite linear;
+		-webkit-animation: rotateLoadReverseSmall 1.25s 1.5s  infinite linear;
 	}
 }
 
@@ -198,6 +304,39 @@ A brooklyn based creative agency founded by simon goetz and alex martineau
 
 
 
+@keyframes rotateLoadReverseSmall {
+  0%  { .transform(translateX(0) scale(1.2));opacity: 1;}
+  25% {.transform(translateX(25px) scale(1));opacity: 1;}
+  50% {.transform(translateX(0) scale(.8));opacity: .75;}
+  75% {.transform(translateX(-25px) scale(1));opacity: 1;}
+  100%{.transform(translateX(0) scale(1.2)); opacity: 1; }
+
+}
+@-webkit-keyframes rotateLoadReverseSmall {
+  0%  { .transform(translateX(0) scale(1.2));opacity: 1;}
+  25% {.transform(translateX(25px) scale(1));opacity: 1;}
+  50% {.transform(translateX(0) scale(.8));opacity: .75;}
+  75% {.transform(translateX(-25px) scale(1));opacity: 1;}
+  100%{.transform(translateX(0) scale(1.2)); opacity: 1; }
+}
+@-moz-keyframes rotateLoadReverseSmall {
+  0%  { .transform(translateX(0) scale(1.2));opacity: 1;}
+  25% {.transform(translateX(25px) scale(1));opacity: 1;}
+  50% {.transform(translateX(0) scale(.8));opacity: .75;}
+  75% {.transform(translateX(-25px) scale(1));opacity: 1;}
+  100%{.transform(translateX(0) scale(1.2)); opacity: 1; }
+}
+@-o-keyframes rotateLoadReverseSmall {
+  0%  { .transform(translateX(0) scale(1.2));opacity: 1;}
+  25% {.transform(translateX(25px) scale(1));opacity: 1;}
+  50% {.transform(translateX(0) scale(.8));opacity: .75;}
+  75% {.transform(translateX(-25px) scale(1));opacity: 1;}
+  100%{.transform(translateX(0) scale(1.2)); opacity: 1; }
+}
+
+
+
+
 
 @-webkit-keyframes rotateLoad {
   0%  {.transform(translateX(0) scale(.8)); opacity: .75;}
@@ -225,6 +364,36 @@ A brooklyn based creative agency founded by simon goetz and alex martineau
   25% { .transform(translateX(-50px) scale(1)); opacity: 1; }
   50% { .transform(translateX(0) scale(1.2)); opacity: 1; }
   75% { .transform(translateX(50px) scale(1)); opacity: 1; }
+  100%{ .transform(translateX(0) scale(.8)); opacity: .75; }
+}
+
+
+@-webkit-keyframes rotateLoadSmall {
+  0%  {.transform(translateX(0) scale(.8)); opacity: .75;}
+  25% { .transform(translateX(-25px) scale(1)); opacity: 1; }
+  50% { .transform(translateX(0) scale(1.2)); opacity: 1; }
+  75% { .transform(translateX(25px) scale(1)); opacity: 1; }
+  100%{ .transform(translateX(0) scale(.8)); opacity: .75; }
+}
+@-moz-keyframes rotateLoadSmall {
+   0%  {.transform(translateX(0) scale(.8)); opacity: .75;}
+  25% { .transform(translateX(-25px) scale(1)); opacity: 1; }
+  50% { .transform(translateX(0) scale(1.2)); opacity: 1; }
+  75% { .transform(translateX(25px) scale(1)); opacity: 1; }
+  100%{ .transform(translateX(0) scale(.8)); opacity: .75; }
+}
+@-o-keyframes rotateLoadSmall {
+   0%  {.transform(translateX(0) scale(.8)); opacity: .75;}
+  25% { .transform(translateX(-25px) scale(1)); opacity: 1; }
+  50% { .transform(translateX(0) scale(1.2)); opacity: 1; }
+  75% { .transform(translateX(25px) scale(1)); opacity: 1; }
+  100%{ .transform(translateX(0) scale(.8)); opacity: .75; }
+}
+@keyframes rotateLoadSmall {
+   0%  {.transform(translateX(0) scale(.8)); opacity: .75;}
+  25% { .transform(translateX(-25px) scale(1)); opacity: 1; }
+  50% { .transform(translateX(0) scale(1.2)); opacity: 1; }
+  75% { .transform(translateX(25px) scale(1)); opacity: 1; }
   100%{ .transform(translateX(0) scale(.8)); opacity: .75; }
 }
 
@@ -351,7 +520,7 @@ A brooklyn based creative agency founded by simon goetz and alex martineau
 
 
 //=============================================================
-//              LOADER 2
+//              LOADER 3
 //=============================================================
 
 
@@ -463,6 +632,271 @@ A brooklyn based creative agency founded by simon goetz and alex martineau
 }
 .loading_three span:nth-child(5) {
   .delay(.4s);
+}
+
+
+
+
+//=============================================================
+//              LOADER 4
+//=============================================================
+
+@squareSize:20px;
+.loading_four{
+	position: relative;
+	width: 100%;
+	left: 0px;
+	right: 0px;
+	height: 500px;
+	background-color: @white;
+	z-index: 9999;
+	text-align: center;
+	max-width: 30px;
+	margin: 0px auto;
+	.holder{
+		display: table-cell;
+		vertical-align: middle;
+		height: 500px;
+		// .rotate(45deg);
+	}
+}
+
+.loading_four span {
+	width: @squareSize;
+	height: @squareSize;
+	display: inline-block;
+	background: @body;
+	margin:  0px;
+	padding: 0px;
+	// .opacity(.9);
+	.border-radius(50%);
+	position: absolute;
+	animation: squared 2.7s infinite ease-in-out;
+	-moz-animation: squared 2.7s infinite ease-in-out;
+	-webkit-animation: squared 2.7s infinite ease-in-out;
+}
+
+@-webkit-keyframes squared {
+	0%,
+	100% {
+		.translate(0,0);
+	}
+	25% {
+		.translate(@squareSize,0);
+	}
+	50% {
+	 	.translate(@squareSize,@squareSize);
+	}
+	75% {
+	 	.translate(0,@squareSize);
+	}
+}
+@-moz-keyframes squared {
+	0%,
+	100% {
+		.translate(0,0);
+	}
+	25% {
+		.translate(@squareSize,0);
+	}
+	50% {
+	 	.translate(@squareSize,@squareSize);
+	}
+	75% {
+	 	.translate(0,@squareSize);
+	}
+}
+
+@-o-keyframes squared {
+	0%,
+	100% {
+		.translate(0,0);
+	}
+	25% {
+		.translate(@squareSize,0);
+	}
+	50% {
+	 	.translate(@squareSize,@squareSize);
+	}
+	75% {
+	 	.translate(0,@squareSize);
+	}
+}
+@keyframes squared {
+	0%,
+	100% {
+		.translate(0,0);
+	}
+	25% {
+		.translate(@squareSize,0);
+	}
+	50% {
+	 	.translate(@squareSize,@squareSize);
+	}
+	75% {
+	 	.translate(0,@squareSize);
+	}
+}
+
+
+
+
+.loading_four span:nth-child(1) {
+  .delay(0s);
+  background-color: @red;
+}
+.loading_four span:nth-child(2) {
+  .delay(.7s);
+  
+  // .translate(15px,15px);
+}
+.loading_four span:nth-child(3) {
+ .delay(1.4s);
+// background-color: @red;
+ // .translate(0,15px);
+}
+.loading_four span:nth-child(4) {
+ .delay(2.1s);
+ // background-color: @yellow;
+ // .translate(0,15px);
+}
+
+
+
+
+
+//=============================================================
+//              LOADER 5
+//=============================================================
+
+@square2Size:25px;
+.loading_five{
+	position: relative;
+	width: 100%;
+	left: 0px;
+	right: 0px;
+	height: 500px;
+	background-color: @grey;
+	z-index: 9999;
+	text-align: center;
+	.holder{
+
+		.cube {
+			position: absolute;
+			width: 200px;
+			left: 50%;
+			margin-left: -100px;
+			animation: cube 5s infinite linear;
+			-moz-animation: cube 5s infinite linear;
+			-webkit-animation: cube 5s infinite linear;
+			-webkit-transform-style: preserve-3d; /* Chrome, Safari, Opera */
+			transform-style: preserve-3d;
+
+			
+			div{
+
+				position: absolute;
+				width: 200px;
+				background-color: rgba(0, 0, 0, 0.2);
+				height: 200px;
+				&.front  { .transform( rotateY(   0deg ) translateZ( 100px )); }
+				&.back   { .transform( rotateX( 180deg ) translateZ( 100px )); }
+				&.right  { .transform( rotateY(  90deg ) translateZ( 100px )); }
+				&.left   { .transform( rotateY( -90deg ) translateZ( 100px )); }
+				&.top    { .transform( rotateX(  90deg ) translateZ( 100px )); }
+				&.bottom { .transform( rotateX( -90deg ) translateZ( 100px )); }
+
+
+			}
+		}
+	}
+}
+
+@-webkit-keyframes cube {
+	0% { .transform(   rotateX(20deg) rotateY(0deg)   scale(1,1));  }
+	10% { .transform(  rotateX(20deg) rotateY(90deg)  scale(1,1));  }
+	25% { .transform(  rotateX(20deg) rotateY(90deg)  scale(1,.5));  }
+
+	35% { .transform(  rotateX(20deg) rotateY(180deg) scale(1,1));  }
+	50% { .transform(  rotateX(20deg) rotateY(180deg) scale(1,.5));  }
+
+	60% { .transform(  rotateX(20deg) rotateY(270deg) scale(1,1));  }
+	75% { .transform(  rotateX(20deg) rotateY(270deg) scale(1,.5));  }
+	80% { .transform(  rotateX(20deg) rotateY(270deg) scale(1,1));  } 
+
+	100% { .transform( rotateX(20deg) rotateY(360deg) scale(1,1));  }
+}
+@-moz-keyframes cube {
+	0% { .transform(   rotateX(20deg) rotateY(0deg)   scale(1,1));  }
+	25% { .transform(  rotateX(20deg) rotateY(90deg)  scale(1,1));  }
+	50% { .transform(  rotateX(20deg) rotateY(180deg) scale(1,1));  }
+	75% { .transform(  rotateX(20deg) rotateY(270deg) scale(1,1));  }
+	100% { .transform( rotateX(20deg) rotateY(360deg) scale(1,1));  }
+}
+
+@-o-keyframes cube {
+	0% { .transform(   rotateX(20deg) rotateY(0deg)   scale(1,1));  }
+	25% { .transform(  rotateX(20deg) rotateY(90deg)  scale(1,1));  }
+	50% { .transform(  rotateX(20deg) rotateY(180deg) scale(1,1));  }
+	75% { .transform(  rotateX(20deg) rotateY(270deg) scale(1,1));  }
+	100% { .transform( rotateX(20deg) rotateY(360deg) scale(1,1));  }
+}
+@keyframes cube {
+	0% { .transform(   rotateX(20deg) rotateY(0deg)   scale(1,1));  }
+	25% { .transform(  rotateX(20deg) rotateY(90deg)  scale(1,1));  }
+	50% { .transform(  rotateX(20deg) rotateY(180deg) scale(1,1));  }
+	75% { .transform(  rotateX(20deg) rotateY(270deg) scale(1,1));  }
+	100% { .transform( rotateX(20deg) rotateY(360deg) scale(1,1));  }
+}
+
+
+
+//=============================================================
+//              LOADER 6
+//=============================================================
+
+
+.loading_five{
+	position: relative;
+	width: 100%;
+	left: 0px;
+	right: 0px;
+	height: 500px;
+	background-color: #F06;
+	z-index: 9999;
+	text-align: center;
+	svg{
+		height: 50px;
+		margin-top: 15%;
+		padding: 5px;
+		.transition;
+		path{
+			.transition;
+			stroke-dasharray: 1200;
+			stroke-dashoffset: 1600;
+			stroke: #fff;
+			fill:transparent;
+			stroke-width:2px;
+			shape-rendering:geometricPrecision;
+			animation: dash 5s infinite;
+			-moz-animation:dash 5s infinite;
+			-webkit-animation: dash 5s infinite;
+		}
+	}
+}
+
+
+@-o-keyframes dash {
+  to {stroke-dashoffset: 0;stroke-dashoffset: 0;}
+}
+@-moz-keyframes dash {
+  to {stroke-dashoffset: 0;stroke-dashoffset: 0;}
+}
+@-webkit-keyframes dash {
+  to {stroke-dashoffset: 0;stroke-dashoffset: 0;}
+}
+@keyframes dash {
+  to {stroke-dashoffset: 0;stroke-dashoffset: 0;}
 }
 
 
